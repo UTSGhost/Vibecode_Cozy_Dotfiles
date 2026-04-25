@@ -1,3 +1,4 @@
+```text
 Vibecode_Cozy_Dotfiles (Repo)                System Target Path
 ─────────────────────────────                ──────────────────
 ├── zshrc                               ───>  ~/.zshrc
@@ -14,3 +15,4 @@ Vibecode_Cozy_Dotfiles (Repo)                System Target Path
     ├── rofi-clipboard-preview          ───>      ├── rofi-clipboard-preview
     ├── waybar-cava.sh                  ───>      ├── waybar-cava.sh
     └── ... (weitere Scripte)            ───>      └── ...
+```
