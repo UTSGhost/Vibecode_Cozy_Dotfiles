@@ -1,0 +1,63 @@
+/** --- COZY COFFEE MAIN (LARGE DRUN) --- **/
+configuration {
+    modi: "drun";
+    show-icons: true;
+    display-drun: "󰀻 Apps";
+    drun-display-format: "{name}";
+    font: "Nunito Bold 12";
+}
+
+@theme "/dev/null"
+
+* {
+    bg: #2d2621f9;
+    bg-alt: #3d3530;
+    fg: #b9b19c;
+    accent: #b35d5d;
+    background-color: transparent;
+    text-color: @fg;
+}
+
+window {
+    width: 600px; /* Schön groß für Apps */
+    background-color: @bg;
+    border: 3px;
+    border-color: @fg;
+    border-radius: 16px;
+    anchor: center;
+    location: center;
+}
+
+mainbox {
+    padding: 20px;
+    children: [ "inputbar", "listview" ];
+}
+
+inputbar {
+    background-color: @bg-alt;
+    margin: 0 0 15px 0;
+    border-radius: 10px;
+    padding: 10px;
+    children: [ "prompt", "entry" ];
+}
+
+prompt { text-color: @accent; margin: 0 10px 0 0; }
+
+listview {
+    columns: 2; /* Deine 2 Spalten */
+    lines: 8;
+    fixed-height: true;
+}
+
+element {
+    padding: 8px;
+    border-radius: 10px;
+}
+
+element selected {
+    background-color: @accent;
+    text-color: @bg;
+}
+
+element-icon { size: 32px; margin: 0 10px 0 0; }
+element-text { vertical-align: 0.5; }

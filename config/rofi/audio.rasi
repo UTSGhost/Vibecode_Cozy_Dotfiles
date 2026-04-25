@@ -1,0 +1,48 @@
+/** --- COZY COFFEE AUDIO (MINI) --- **/
+* {
+    coffee-bg:    #2d2621f9;
+    cream-beige:  #b9b19c;   
+    soft-red:     #b35d5d;
+    coffee-light: #3d3530;
+    background-color: transparent;
+    text-color: @cream-beige;
+    font: "Nunito Bold 10";
+}
+
+window {
+    background-color: @coffee-bg;
+    border: 3px;
+    border-color: @cream-beige;
+    border-radius: 12px;
+    width: 220px; /* Schön schmal */
+    
+    location: north east;
+    anchor: north east;
+    x-offset: -360px; /* Dein Wert */
+    y-offset: 0px;    /* Dein Wert */
+}
+
+mainbox {
+    padding: 4px;
+    children: [ "listview" ]; /* Inputbar entfernt für maximale Kompaktheit */
+}
+
+listview {
+    fixed-height: false;
+    lines: 5; /* Maximal 5 Geräte gleichzeitig sichtbar */
+    scrollbar: false;
+}
+
+element {
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+element selected {
+    background-color: @soft-red;
+    text-color: @coffee-bg;
+}
+
+element-text {
+    font: "JetBrainsMono Nerd Font Bold 9";
+}

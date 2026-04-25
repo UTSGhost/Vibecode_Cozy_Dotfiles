@@ -1,0 +1,140 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "spacing": 4,
+
+    "modules-left": ["custom/menu", "wlr/taskbar","custom/sep", "tray","custom/sep", "sway/window"],
+    "modules-center": ["sway/workspaces"],
+    "modules-right": ["custom/cava", "pulseaudio", "bluetooth", "network", "battery", "clock", "custom/notification"],
+
+    "custom/sep": {
+        "format": "|",
+        "color": "#b9b19c",
+        "tooltip": false
+    },
+    
+    "custom/cava": {
+        "exec": "~/.local/bin/waybar-cava.sh",
+        "format": "{}",
+        "on-click": "~/.local/bin/waybar-cava.sh toggle",
+        "restart-interval": 1
+    },
+    
+    "custom/menu": {
+        "format": "  ",
+        "on-click": "rofi -show drun",
+        "tooltip": false
+    },
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "default": "○",
+            "urgent": "⦿",
+            "focused": "●"
+        }
+    },
+
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 18,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": [
+           "foot"
+        ],
+        "app_ids-mapping": {
+            "firefox-esr": "firefox"
+        }
+    },
+
+    "sway/window": {
+        "format": "{app_id}", // Nur der App-Name (kurz & knackig)
+        "max-length": 20,
+        "rewrite": {
+            "": "Desktop" // Wenn kein Fenster offen ist
+        }
+    },
+
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "󰕾  {volume}%", // Hier ist dein Icon!
+        "format-muted": "󰝟 Mute",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "~/.local/bin/rofi-audio.sh",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-middle": "~/.local/bin/waybar-cava.sh toggle"
+    },
+
+   "bluetooth": {
+    "format": "  {status}",
+    "on-click": "~/.local/bin/rofi-bluetooth -theme ~/.config/ronema/themes/Bluetooth.rasi"
+    },
+
+    "network": {
+        "format-wifi": "   {essid}",
+        "format-ethernet": "󰈀 {ifname}",
+        "format-disconnected": "󰖪 Off",
+        "on-click": "ronema" 
+    },
+
+    "battery": {
+        "states": { "warning": 30, "critical": 15 },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%", // Der Akku mit dem Blitz drin
+        "format-plugged": "󰂄 {capacity}%",  // Auch wenn voll, aber am Kabel
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "on-click": "~/.local/bin/battery-profile.sh",
+        "on-click-right": "~/.local/bin/powermenu.sh",
+        "tooltip-format": "{capacity}% - {timeTo}"
+    },
+
+    "clock": {
+        "interval": 1,
+        "format": "󰃭  {:%d.%m.%Y | %H:%M:%S}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "on-scroll": 1,
+            "format": {
+                "months":   "<span color='#b9b19c'><b>{}</b></span>",
+                "days":     "<span color='#b9b19c'>{}</span>",
+                "weeks":    "<span color='#b35d5d'><b>W{}</b></span>",
+                "weekdays": "<span color='#b35d5d'><b>{}</b></span>",
+                "today":    "<span color='#2d2621' background='#b35d5d'><b>{}</b></span>"
+            }
+        }
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "󰂚<span foreground='#b35d5d'><sup></sup></span>",
+            "none": "󰂚",
+            "dnd-notification": "󰂛<span foreground='#b35d5d'><sup></sup></span>",
+            "dnd-none": "󰂛",
+            "inhibited-notification": "󰂚<span foreground='#b35d5d'><sup></sup></span>",
+            "inhibited-none": "󰂚",
+            "dnd-inhibited-notification": "󰂛<span foreground='#b35d5d'><sup></sup></span>",
+            "dnd-inhibited-none": "󰂛"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    }
+}

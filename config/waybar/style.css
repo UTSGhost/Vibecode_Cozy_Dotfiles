@@ -1,0 +1,137 @@
+/* --- COZY COFFEE & CREAM (SLIM DOTS) --- */
+
+@define-color coffee-bg     #2d2621;
+@define-color cream-beige   #b9b19c;
+@define-color soft-red      #b35d5d;
+@define-color coffee-light  #3d3530;
+
+* {
+    font-family: "Nunito", "JetBrainsMono Nerd Font";
+    font-weight: 800; 
+    font-size: 14px;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+/* --- EXAKT DEINE CONTAINER-MAßE --- */
+.modules-left, .modules-center, .modules-right {
+    background-color: @coffee-bg;
+    border: 3px solid @cream-beige;
+    border-radius: 16px;
+    margin: 4px 6px 0px 6px; 
+    padding: 2px 10px;
+}
+
+/* --- SCHLANKES MODUL-PADDING --- */
+#clock, #battery, #network, #pulseaudio, #bluetooth, #custom-notification {
+    padding: 0 8px; /* Kein extra Aufblähen nach oben/unten */
+    color: @cream-beige;
+    transition: all 0.2s ease;
+    border-radius: 8px; /* Damit der Hover schön rund ist */
+}
+
+#clock:hover, #network:hover, #pulseaudio:hover, #battery:hover, #bluetooth:hover, #custom-notification:hover {
+    background-color: @coffee-light;
+    color: @soft-red;
+}
+
+/* --- LINKER BEREICH (Kompakt) --- */
+#custom-menu {
+    padding: 0 8px;
+}
+
+#custom-sep {
+    color: @cream-beige; /* Nutzt deine Farbe */
+    opacity: 0.5;       /* Etwas dezenter machen */
+    margin: 0 10px;     /* 10px Abstand links und rechts */
+}
+
+#window {
+    color: alpha(@cream-beige, 0.7);
+    font-weight: 800;
+    padding-right: 10px; 
+}
+
+/* --- TASKBAR & TRAY ILLUSION --- */
+#taskbar button {
+    padding: 0 6px; 
+    background: transparent;
+    /* FIX: Reserviert die 2px dauerhaft unsichtbar, damit nichts mehr springt */
+    border-bottom: 2px solid transparent; 
+    box-shadow: none;
+    color: @cream-beige;
+    border-radius: 8px 8px 0 0; /* Rundung für alle gleich */
+    transition: all 0.2s ease;
+}
+
+#taskbar button:hover {
+    background-color: @coffee-light;
+    border-bottom: 2px solid transparent; /* Rand bleibt beim Hovern unsichtbar erhalten */
+}
+
+#taskbar button.active {
+    background-color: alpha(@soft-red, 0.15);
+    border-bottom: 2px solid @soft-red; /* Hier wird er dann rot sichtbar */
+}
+
+#tray {
+    margin-left: 4px;
+}
+
+/* --- WORKSPACES ALS PUNKTE --- */
+#workspaces button {
+    padding: 0 8px; /* Dein Original-Padding */
+    color: @cream-beige;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+#workspaces button.focused {
+    color: @soft-red;
+}
+
+#workspaces button:hover {
+    background-color: @coffee-light;
+    color: @soft-red;
+    border: none;
+    box-shadow: none;
+}
+
+/* --- TOOLTIP --- */
+/* --- CALENDAR TOOLTIP RICE --- */
+tooltip {
+    background: @coffee-bg;
+    border: 2px solid @cream-beige;
+    border-radius: 12px;
+}
+
+tooltip label {
+    font-family: "JetBrainsMono Nerd Font Bold"; /* Monospace ist wichtig für Kalender-Gitter! */
+    font-size: 13px;
+    padding: 10px;
+    color: @cream-beige;
+}
+
+/* --- PULSEAUDIO MUTED --- */
+#pulseaudio.muted {
+    color: @soft-red;
+    /* Optional: Damit es beim Hovern nicht wieder beige wird, wenn es stumm ist */
+    background-color: transparent; 
+}
+
+/* --- CAVA VISUALIZER --- */
+#custom-cava {
+    color: @soft-red; /* Deine rote Welle */
+    padding: 0 8px;
+    margin: 2px 2px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+#custom-cava:hover {
+    background-color: @coffee-light;
+}

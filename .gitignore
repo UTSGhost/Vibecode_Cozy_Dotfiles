@@ -1,0 +1,18 @@
+# OS generierte Dateien
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporäre Dateien und Caches
+*~
+*.swp
+*.log
+.cache/
+
+# Private Skripte (falls du später welche im bin-Ordner hast)
+# local_bin/geheimes_skript.sh
+

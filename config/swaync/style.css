@@ -1,0 +1,134 @@
+/* --- SWAYNC COZY COFFEE (UNSTOPPABLE BOLD RICE) --- */
+
+@define-color bg #2d2621;
+@define-color bg-alt #3d3530;
+@define-color bg-hover #4a4039;
+@define-color fg #b9b19c;
+@define-color accent #b35d5d;
+
+* {
+    /* Wir setzen Nunito Bold an die erste Stelle */
+    font-family: "Nunito Bold", "Nunito", sans-serif;
+    font-weight: 900; /* 800 -> 900 für extra Dicke */
+    background-clip: padding-box;
+    box-shadow: none;
+}
+
+/* --- CONTROL CENTER --- */
+.control-center {
+    background: alpha(@bg, 0.98);
+    border: 3px solid @fg;
+    border-radius: 16px;
+    margin: 10px;
+}
+
+.control-center-list-placeholder {
+    font-weight: 900;
+    color: alpha(@fg, 0.2);
+}
+
+/* --- NOTIFICATIONS --- */
+.notification {
+    background: @bg-alt;
+    border: 2px solid @fg;
+    border-radius: 12px;
+    margin: 6px 10px;
+    padding: 0; 
+    transition: all 0.2s ease;
+}
+
+.notification-content, 
+.notification-default-action, 
+.notification-action {
+    background: transparent;
+    padding: 8px 12px;
+    border-radius: 12px;
+}
+
+.notification:hover {
+    background: @bg-hover;
+    border-color: @accent;
+}
+
+.summary {
+    color: @accent;
+    font-size: 16px;
+    font-weight: 900; /* Extra Fett */
+    margin-bottom: 2px;
+}
+
+.body {
+    color: @fg;
+    font-size: 14px;
+    /* FIX: Hier stand 500, das hat es dünn gemacht. Jetzt 800 für massiven Look. */
+    font-weight: 800; 
+}
+
+/* --- WIDGETS --- */
+
+.widget-title {
+    padding: 12px 15px;
+}
+
+.widget-title > label {
+    font-size: 20px;
+    font-weight: 900;
+    color: @fg;
+}
+
+.widget-title > button {
+    background: @accent;
+    color: @bg;
+    border: 2px solid @accent;
+    border-radius: 8px;
+    padding: 4px 12px;
+    font-size: 13px;
+    font-weight: 900;
+    transition: all 0.2s ease;
+}
+
+.widget-title > button:hover {
+    background: transparent;
+    color: @accent;
+}
+
+.widget-dnd {
+    padding: 8px 15px;
+    color: @fg;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.widget-dnd > switch {
+    background: @bg-alt;
+    border: 2px solid @fg;
+    border-radius: 20px;
+}
+
+.widget-dnd > switch slider {
+    background: @fg;
+    border-radius: 20px;
+    min-width: 16px;
+    min-height: 16px;
+    margin: 3px;
+}
+
+.widget-dnd > switch:checked {
+    background: @accent;
+    border-color: @accent;
+}
+
+.widget-dnd > switch:checked slider {
+    background: @bg;
+}
+
+.close-button {
+    background: @accent;
+    color: @bg;
+    border-radius: 10px;
+    margin: 4px;
+}
+
+.close-button:hover {
+    background: @fg;
+}

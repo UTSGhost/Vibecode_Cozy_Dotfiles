@@ -1,0 +1,85 @@
+/**
+ * VIBECODE COZY COFFEE - BOLD & BALANCED
+ **/
+
+
+* {
+    coffee-bg:    #2d2621f9;
+    cream-beige:  #b9b19c;   
+    soft-red:     #b35d5d;
+    coffee-light: #3d3530;
+
+    background-color:   transparent;
+    text-color:         @cream-beige;
+    /* Haupt-Font für das gesamte Fenster */
+    font:               "Nunito Bold 11";
+}
+
+window {
+    background-color:   @coffee-bg;
+    border:             3px;
+    border-color:       @cream-beige;
+    border-radius:      16px;
+    width:              350px; 
+    
+    location:           north east;
+    anchor:             north east;
+    
+    /* POSITIONIERUNG FIX:
+       -175px war genau die Hälfte. 
+       Versuch mal -130px oder -140px, um es weiter nach rechts zu rücken. */
+    x-offset:           -120px; 
+    y-offset:           0px;
+}
+
+/* ... mainbox und inputbar bleiben gleich ... */
+
+mainbox {
+    padding:            8px;
+    spacing:            8px;
+    children:           [ "inputbar", "listview" ];
+}
+
+inputbar {
+    background-color:   @coffee-light;
+    border-radius:      10px;
+    padding:            6px 10px;
+    children:           [ "entry" ];
+}
+
+entry {
+    /* Auch das Suchfeld fett machen */
+    font:               "Nunito Bold 11";
+    placeholder:        "Search Networks...";
+    placeholder-color:  #b9b19c44;
+}
+
+/* --- LISTE --- */
+listview {
+    fixed-height:       false;
+    lines:              8;
+    spacing:            2px;
+    scrollbar:          false;
+}
+
+element {
+    padding:            4px 8px;
+    border-radius:      8px;
+}
+
+element selected {
+    background-color:   @soft-red;
+    text-color:         @coffee-bg;
+}
+
+element-text {
+    /* TEXT BOLD MACHEN: Wir fügen "Bold" in den Namen ein */
+    font:           "JetBrainsMono Nerd Font Bold 10"; 
+    vertical-align: 0.5;
+    text-color:     inherit;
+}
+
+element-icon {
+    size:           18px;
+    margin:         0 8px 0 0;
+}

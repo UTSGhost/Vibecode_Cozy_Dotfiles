@@ -1,0 +1,6 @@
+#!/bin/bash
+# 1. Farben generieren
+~/.local/bin/wal -i "$1"
+# 2. Wallpaper in Sway setzen
+swaymsg "output * bg $1 fill"
+

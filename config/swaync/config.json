@@ -1,0 +1,44 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "scripts": {
+    "notification-sound": {
+      "exec": "pw-play /usr/share/sounds/freedesktop/stereo/message.oga",
+      "run-on": "popup"
+    }
+  },
+  "layer": "overlay",
+  "hide-on-clear": false,
+  "ignore-dbus-inhibitors": true,
+  "control-center-margin-top": 10,
+  "control-center-margin-bottom": 10,
+  "control-center-margin-right": 10,
+  "control-center-width": 330,
+  "notification-icon-size": 64,
+  "notification-body-image-height": 100,
+  "notification-body-image-width": 200,
+  "timeout": 10,
+  "active-timeout": 5,
+  "notification-window-width": 300,
+  "keyboard-shortcuts": true,
+  "image-visibility": "always",
+  "transition-time": 200,
+  "hide-on-clear": false,
+  "backwards-config-center": false,
+  "widgets": [
+    "title",
+    "dnd",
+    "notifications"
+  ],
+  "widget-config": {
+    "title": {
+      "text": "System",
+      "clear-all-button": true,
+      "button-text": "Clear All"
+    },
+    "dnd": {
+      "text": "Do Not Disturb" 
+    }
+  }
+}
