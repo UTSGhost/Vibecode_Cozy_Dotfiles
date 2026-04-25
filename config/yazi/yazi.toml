@@ -1,0 +1,12 @@
+[opener]
+edit = [
+	{ run = 'nano "$@"', block = true, desc = "Edit" }
+]
+open = [
+	{ run = 'xdg-open "$@"', orphan = true, desc = "Open" }
+]
+
+[open]
+prepend_rules = [
+	{ name = "*", use = [ "edit", "open" ] }
+]
