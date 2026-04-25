@@ -7,7 +7,8 @@ Kernel: 6.19.13
 WM: SwayFX (wlroots)
 Terminal: foot
 Shell: zsh
-Font: JetBrainsMono Nerd Font
+Main Font: Nunito Bold (Waybar & Rofi)
+Mono Font: JetBrainsMono Nerd Font (Terminal)
 ```
 
 ## Dependencies
@@ -17,7 +18,9 @@ sudo dnf install sway waybar rofi-wayland swaync cliphist wl-clipboard \
 network-manager-applet bluez pulsemixer cava python3-i3ipc python3-pywal \
 swaybg swaylock swayidle wireplumber
 ```
+and the fonts listed above
 
+## Directory Structur
 ```text
 Vibecode_Cozy_Dotfiles (Repo)                System Target Path
 ─────────────────────────────                ──────────────────
