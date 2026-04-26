@@ -81,7 +81,7 @@
         "format-wifi": "   {essid}",
         "format-ethernet": "󰈀 {ifname}",
         "format-disconnected": "󰖪 Off",
-        "on-click": "ronema" 
+        "on-click": "~/.local/bin/ronema"
     },
 
     "battery": {

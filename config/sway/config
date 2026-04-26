@@ -4,7 +4,7 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term foot
+set $term kitty
 
 # AKTUALISIERT: Nutzt jetzt dein neues Cozy-Theme (oder behalte deinen Pfad, falls gewünscht)
 set $menu rofi -show drun -theme ~/.config/rofi/config.rasi
@@ -79,7 +79,7 @@ include /etc/sway/config.d/*
 ### Basis-Shortcuts ###
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
-bindsym $mod+e exec $term -e yazi
+bindsym $mod+e exec $term -e spf
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 

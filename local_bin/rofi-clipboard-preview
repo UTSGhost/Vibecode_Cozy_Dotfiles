@@ -1,24 +1,26 @@
 #!/bin/bash
 
-# Temporärer Ordner für die Icons
 tmp_dir="/tmp/cliphist_icons"
 mkdir -p "$tmp_dir"
 
-# Cliphist Liste holen und für Rofi aufbereiten
-# Wir nutzen ein spezielles Format, das Rofi Icons zuweist
+# Hier definieren wir dein Cozy-Theme
+THEME="$HOME/.config/rofi/config.rasi"
+
 cliphist list | while read -r line; do
+    # Wir brauchen die ID für cliphist decode
     id=$(echo "$line" | cut -f1)
     content=$(echo "$line" | cut -f2-)
     
-    # Wenn es ein Bild ist, extrahieren wir ein Thumbnail
     if [[ "$content" == *"[[ binary data"* ]]; then
         icon_path="$tmp_dir/${id}.png"
+        # Bild nur generieren, wenn es noch nicht im Temp-Ordner liegt
         if [ ! -f "$icon_path" ]; then
             cliphist decode "$id" > "$icon_path" 2>/dev/null
         fi
-        echo -en "$content\0icon\x1f$icon_path\n"
+        # Wir übergeben die komplette "$line" inkl. ID an Rofi, hängen aber das Icon dran
+        echo -en "$line\0icon\x1f$icon_path\n"
     else
-        # Normaler Text bekommt ein Standard-Icon (optional)
-        echo -en "$content\n"
+        echo -en "$line\n"
     fi
-done | rofi -dmenu -i -p "Clipboard" -show-icons -theme-str 'listview { columns: 2; }' | xargs -I {} cliphist decode "{}" | wl-copy
+# Rofi wird mit deinem Theme, aktivierten Icons und einer fixen Icon-Größe gestartet
+done | rofi -dmenu -i -p "Clipboard" -show-icons -theme "$THEME" -theme-str 'element-icon { size: 40px; }' | cliphist decode | wl-copy

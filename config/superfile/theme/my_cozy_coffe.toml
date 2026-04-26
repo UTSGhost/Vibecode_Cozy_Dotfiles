@@ -1,0 +1,72 @@
+##############################################
+#                                            #
+#         Coffee & Matcha Theme              #
+#                                            #
+##############################################
+
+# Angepasst für dein Fedora SwayFX Setup mit Kitty
+
+###############################################################################
+#                           Code Syntax Highlighting                          #
+###############################################################################
+
+# Für ein dunkles Theme passt "dracula" oder "monokai" am besten
+code_syntax_highlight = "dracula"
+
+###############################################################################
+#                                 Base Colors                                 #
+###############################################################################
+
+#-- Full Screen
+full_screen_fg = "#b9b19c" # Cream Beige
+full_screen_bg = "#2d2621" # Coffee Background
+
+#-- Gradient (Das Logo beim Start)
+# Ein weicher Übergang von Fedora-Blau zu Deep Plum
+gradient_color = ["#51a2da", "#957fb8"]
+
+#-- File Panel
+file_panel_fg = "#b9b19c"           # Cream Beige
+file_panel_bg = "#2d2621"           # Coffee Background
+file_panel_border = "#5c4f47"       # Dezent helleres Braun
+file_panel_border_active = "#51a2da" # Fedora Blau (leuchtend)
+file_panel_top_directory_icon = "#dca561" # Warmes Gold für Ordner
+file_panel_top_path = "#b9b19c"     # Cream Beige
+file_panel_item_selected_fg = "#dca561" # Gold für ausgewählten Text
+file_panel_item_selected_bg = "#3d3530" # Dunkler Highlight-Hintergrund
+
+#-- Footer
+footer_fg = "#b9b19c"
+footer_bg = "#2d2621"
+footer_border = "#5c4f47"
+footer_border_active = "#98bb6c"    # Matcha Grün
+
+#-- Sidebar
+sidebar_fg = "#b9b19c"
+sidebar_bg = "#2d2621"
+sidebar_title = "#7aa89f"           # Sattes Teal
+sidebar_border = "#2d2621"
+sidebar_border_active = "#98bb6c"   # Matcha Grün
+sidebar_item_selected_fg = "#dca561" # Gold
+sidebar_item_selected_bg = "#3d3530"
+sidebar_divider = "#5c4f47"
+
+#-- Modals (Pop-ups z.B. beim Löschen)
+modal_fg = "#b9b19c"
+modal_bg = "#3d3530"                # Etwas abgehoben vom Hintergrund
+modal_border_active = "#dca561"     # Gold
+modal_cancel_fg = "#2d2621"         # Dunkler Text
+modal_cancel_bg = "#cc4a4a"         # Burgundy Rot
+modal_confirm_fg = "#2d2621"        # Dunkler Text
+modal_confirm_bg = "#98bb6c"        # Matcha Grün
+
+#-- Help Menu
+help_menu_hotkey = "#51a2da"        # Fedora Blau
+help_menu_title = "#dca561"         # Warmes Gold
+
+#-- Special
+cursor = "#b35d5d"                  # Dein roter Cursor
+correct = "#98bb6c"                 # Matcha Grün
+error = "#cc4a4a"                   # Burgundy Rot
+hint = "#7aa89f"                    # Sattes Teal
+cancel = "#cc4a4a"                  # Burgundy Rot
