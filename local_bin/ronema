@@ -11,8 +11,8 @@ function initialization() {
 	source "$DIR/languages/${LANGUAGE}.lang" || source "${XDG_CONFIG_HOME:-$HOME/.config}/ronema/languages/${LANGUAGE}.lang" || exit
 	{ [[ -f "$DIR/themes/${THEME}" ]] && RASI_DIR="$DIR/themes/${THEME}"; } || { [[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/ronema/themes/${THEME}" ]] && RASI_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/ronema/themes/${THEME}"; } || exit
 	{ [[ -d "$DIR/icons" ]] && ICON_DIR="$DIR/icons" ; } || { [[ -d "${XDG_CONFIG_HOME:-$HOME/.config}/ronema/icons" ]] && ICON_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/ronema/icons" ; } || exit
-	for i in "${WIRELESS_INTERFACES[@]}"; do WIRELESS_INTERFACES_PRODUCT+=("$(nmcli -f general.product device show "$i" | awk '{print $2}')"); done
-	for i in "${WIRED_INTERFACES[@]}"; do WIRED_INTERFACES_PRODUCT+=("$(nmcli -f general.product device show "$i" | awk '{print $2}')"); done
+	for i in "${WIRELESS_INTERFACES[@]}"; do WIRELESS_INTERFACES_PRODUCT+=("WLAN"); done
+    for i in "${WIRED_INTERFACES[@]}"; do WIRED_INTERFACES_PRODUCT+=("ETH"); done
 	wireless_interface_state && ethernet_interface_state
 }
 function notification() {
@@ -28,7 +28,7 @@ function wireless_interface_state() {
 		WIFI_CON_STATE=$(nmcli device status | grep "^${WIRELESS_INTERFACES[WLAN_INT]}." | awk '{print $3}')
 		{ [[ "$WIFI_CON_STATE" == "unavailable" ]] && WIFI_LIST="${SELECTION_WIFI_DISABLED}" && WIFI_SWITCH="${SELECTION_PREFIX}${SELECTION_WIFI_ON}" && OPTIONS="${WIFI_LIST}\n${WIFI_SWITCH}\n${SELECTION_PREFIX}${SELECTION_SCAN}\n"; } || { [[ "$WIFI_CON_STATE" =~ "connected" ]] && {
 			PROMPT=${WIRELESS_INTERFACES_PRODUCT[WLAN_INT]}[${WIRELESS_INTERFACES[WLAN_INT]}]
-			WIFI_LIST=$(nmcli --fields SSID,SECURITY,BARS device wifi list ifname "${WIRELESS_INTERFACES[WLAN_INT]}")
+			WIFI_LIST=$(nmcli --fields SSID,SECURITY,BARS device wifi list ifname "${WIRELESS_INTERFACES[WLAN_INT]}" --rescan no)
 			wifi_list
 			[[ "$ACTIVE_SSID" == "--" ]] && WIFI_SWITCH="${SELECTION_PREFIX}${SELECTION_SCAN}\n${SELECTION_PREFIX}${SELECTION_MANUAL_HIDDEN}\n${SELECTION_PREFIX}${SELECTION_WIFI_OFF}" || WIFI_SWITCH="${SELECTION_PREFIX}${SELECTION_SCAN}\n${SELECTION_PREFIX}${SELECTION_DISCONECT}\n${SELECTION_PREFIX}${SELECTION_MANUAL_HIDDEN}\n${SELECTION_PREFIX}${SELECTION_WIFI_OFF}"
 			OPTIONS="${WIFI_LIST}\n${WIFI_SWITCH}\n"

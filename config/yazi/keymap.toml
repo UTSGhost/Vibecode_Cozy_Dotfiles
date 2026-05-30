@@ -1,0 +1,9 @@
+[[mgr.prepend_keymap]]
+on   = [ "<A-c>" ]
+run  = 'shell "code ." --orphan --confirm'
+desc = "VS Code öffnen"
+
+[[mgr.prepend_keymap]]
+on   = [ "<A-i>" ]
+run  = 'shell "flatpak run com.jetbrains.IntelliJ-IDEA-Ultimate ." --orphan --confirm'
+desc = "IntelliJ öffnen"

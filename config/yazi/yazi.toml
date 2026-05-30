@@ -1,0 +1,11 @@
+[opener]
+# Sicherheitshalber definieren wir hier, was 'system' überhaupt machen soll (xdg-open ruft deine mimeapps.list auf)
+system = [
+    { run = 'xdg-open "$@"', orphan = true, desc = "System" }
+]
+
+[open]
+rules = [
+    # Der korrekte Catch-All für neuere Yazi-Versionen
+    { mime = "*", use = "system" }
+]

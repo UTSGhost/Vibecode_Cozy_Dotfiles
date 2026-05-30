@@ -53,7 +53,7 @@
     },
 
     "sway/window": {
-        "format": "{app_id}", // Nur der App-Name (kurz & knackig)
+        "format": "{app_id}", // Nur der App-Name 
         "max-length": 20,
         "rewrite": {
             "": "Desktop" // Wenn kein Fenster offen ist

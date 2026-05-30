@@ -6,12 +6,12 @@ set $up k
 set $right l
 set $term kitty
 
-# AKTUALISIERT: Nutzt jetzt dein neues Cozy-Theme (oder behalte deinen Pfad, falls gewünscht)
+# Rofi Menü
 set $menu rofi -show drun -theme ~/.config/rofi/config.rasi
 
 ### Input & Output ###
 output * scale 1.2
-output * bg ~/Pictures/zhangjj.jpeg fill
+output * bg ~/Pictures/newwall.jpg fill
 
 input type:touchpad {
     dwt enabled
@@ -24,31 +24,33 @@ input type:keyboard {
     xkb_layout "de"
 }
 
-### Optik & SwayFX (Hyprland-Vibe) ###
-gaps inner 5
-gaps outer 3
-default_border pixel 4
-default_floating_border pixel 4
+### Optik & SwayFX (Clean Flat Vibe) ###
+gaps inner 4
+# gaps outer 1
 
-# Farben (Cozy Coffee Theme)
-set $coffee_bg     #2d2621
-set $coffee_light  #3d3530
-set $cream_beige   #b9b19c
-set $soft_red      #b35d5d
+# Normale Fenster (Tiling)
+default_border pixel 2
+# smart_gaps on
 
-# class                   border         background    text          indicator     child_border
-client.focused            $soft_red      $soft_red     $coffee_bg    $soft_red     $soft_red
-client.focused_inactive  $cream_beige   $coffee_light $cream_beige  $cream_beige  $cream_beige
-client.unfocused         $cream_beige   $coffee_bg    $cream_beige  $cream_beige  $cream_beige
+# Schwebende Fenster (Floating)
+default_floating_border pixel 2
 
-# Effekte (Rundungen, Schatten, Blur)
-corner_radius 16
-shadows on
-shadow_blur_radius 15
-shadow_color #000000AA
+# Farben (Flat Pink, Purple & Deep Blue)
+set $deep_blue     #0d111c
+set $soft_blue     #1a2133
+set $cyber_pink    #f05ca0
+set $cyber_purple  #b072d1
+set $text_light    #e0e5f5
+
+# class                  border          background      text          indicator       child_border
+client.focused           $cyber_pink     $cyber_pink     $deep_blue    $cyber_pink     $cyber_pink
+client.unfocused         $cyber_purple   $soft_blue      $text_light   $soft_blue      $cyber_purple
+
+# Effekte (Rundungen bleiben, Schatten/Blur wird minimal gehalten)
+corner_radius 8
 blur on
-blur_passes 3
-blur_radius 7
+blur_passes 2
+blur_radius 5
 
 ### Fensterregeln ###
 for_window [window_role="pop-up"] floating enable
@@ -61,12 +63,8 @@ exec swaync
 exec /usr/libexec/polkit-gnome-authentication-agent-1
 exec_always ~/.local/bin/autotiling
 exec_always gammastep -O 4000
-exec zapzap --start-minimized
-
-# AKTUALISIERT: Killt alte Instanzen beim Reload, damit nichts doppelt läuft
+exec flatpak run com.rtosta.zapzap
 exec_always "killall waybar; waybar"
-
-# Clipboard History
 exec_always wl-paste --type text --watch cliphist store 
 exec_always wl-paste --type image --watch cliphist store
 
@@ -79,11 +77,9 @@ include /etc/sway/config.d/*
 ### Basis-Shortcuts ###
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
-bindsym $mod+e exec $term -e spf
+bindsym $mod+e exec $term -e yazi
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
-
-# AKTUALISIERT: Zeigt jetzt auf dein neues Skript in .local/bin
 bindsym $mod+Shift+e exec ~/.local/bin/powermenu.sh
 
 floating_modifier $mod normal
@@ -176,8 +172,12 @@ bindsym Mod1+Print exec FILE=~/Bilder/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
 bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy && notify-send "Screenshot" "Bereich in Zwischenablage"
 bindsym Mod1+Shift+Print exec FILE=~/Bilder/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png && grim -g "$(slurp)" $FILE && wl-copy < $FILE && notify-send "Screenshot" "Bereich gespeichert & kopiert"
 
-# Refresh-Binding für Waybar (beibehalten)
+# Refresh-Binding für Waybar
 bindsym $mod+Shift+w exec killall waybar && waybar
 
 # Schwebende Fenster (Applets)
 for_window [app_id="pavucontrol"] floating enable, resize set width 600 height 400, move position center
+exec swayidle -w \
+    timeout 600 'hyprlock' \
+    timeout 630 'swaymsg "output * power off"' \
+    resume 'swaymsg "output * power on"'

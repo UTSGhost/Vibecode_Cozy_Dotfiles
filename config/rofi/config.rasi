@@ -1,63 +1,84 @@
-/** --- COZY COFFEE MAIN (LARGE DRUN) --- **/
+/** --- CLEAN FLAT VIBE (LARGE DRUN) --- **/
 configuration {
     modi: "drun";
     show-icons: true;
     display-drun: "󰀻 Apps";
     drun-display-format: "{name}";
-    font: "Nunito Bold 12";
+    font: "Nunito bold 14";
 }
 
 @theme "/dev/null"
 
 * {
-    bg: #2d2621f9;
-    bg-alt: #3d3530;
-    fg: #b9b19c;
-    accent: #b35d5d;
+    /* Farben: Deep Blue, Soft Blue, Text Light, Cyber Pink, Cyber Purple */
+    bg: #0d111cdb;      /* Leicht transparent für minimalen Blur-Effekt */
+    bg-alt: #1a2133;
+    fg: #e0e5f5;
+    accent: #f05ca0;
+    border-col: #b072d1;
+
     background-color: transparent;
     text-color: @fg;
 }
 
 window {
-    width: 600px; /* Schön groß für Apps */
+    width: 600px; 
     background-color: @bg;
-    border: 3px;
-    border-color: @fg;
-    border-radius: 16px;
+    border: 2px solid;
+    border-color: @border-col;
+    border-radius: 8px; /* Systemweiter Außenradius */
     anchor: center;
     location: center;
 }
 
 mainbox {
-    padding: 20px;
+    padding: 12px; /* Etwas gestrafft für den Clean-Look */
     children: [ "inputbar", "listview" ];
 }
 
 inputbar {
     background-color: @bg-alt;
-    margin: 0 0 15px 0;
-    border-radius: 10px;
+    margin: 0 0 12px 0;
+    border-radius: 4px; /* Schärfere Innenkanten */
     padding: 10px;
     children: [ "prompt", "entry" ];
 }
 
-prompt { text-color: @accent; margin: 0 10px 0 0; }
+prompt { 
+    text-color: @accent; 
+    margin: 0 10px 0 0; 
+    font: "Nunito Bold 14";
+}
+
+entry {
+    text-color: @fg;
+    placeholder: "Suchen...";
+    placeholder-color: #e0e5f566; /* Leicht transparenter Text Light */
+}
 
 listview {
-    columns: 2; /* Deine 2 Spalten */
+    columns: 2; 
     lines: 8;
     fixed-height: true;
+    spacing: 4px; /* Kompaktere Abstände zwischen den Elementen */
 }
 
 element {
     padding: 8px;
-    border-radius: 10px;
+    border-radius: 4px; /* Schärfere Innenkanten */
 }
 
 element selected {
     background-color: @accent;
-    text-color: @bg;
+    text-color: #0d111c; /* Deep Blue Text auf Pinkem Hintergrund (wie Sway client.focused) */
 }
 
-element-icon { size: 32px; margin: 0 10px 0 0; }
-element-text { vertical-align: 0.5; }
+element-icon { 
+    size: 32px; 
+    margin: 0 10px 0 0; 
+}
+
+element-text { 
+    vertical-align: 0.5; 
+    text-color: inherit; /* Übernimmt die Farbe vom Selected-State */
+}

@@ -1,38 +1,37 @@
-/* --- SWAYNC COZY COFFEE (UNSTOPPABLE BOLD RICE) --- */
+/* --- CLEAN FLAT VIBE (SHARP & COMPACT) --- */
 
-@define-color bg #2d2621;
-@define-color bg-alt #3d3530;
-@define-color bg-hover #4a4039;
-@define-color fg #b9b19c;
-@define-color accent #b35d5d;
+@define-color deep-blue      #0d111c;
+@define-color soft-blue      #1a2133;
+@define-color cyber-pink     #f05ca0;
+@define-color cyber-purple   #b072d1;
+@define-color text-light     #e0e5f5;
 
 * {
-    /* Wir setzen Nunito Bold an die erste Stelle */
-    font-family: "Nunito Bold", "Nunito", sans-serif;
-    font-weight: 900; /* 800 -> 900 für extra Dicke */
+    font-family: "Nunito", "JetBrainsMono Nerd Font", sans-serif;
+    font-weight: 800; 
     background-clip: padding-box;
     box-shadow: none;
 }
 
 /* --- CONTROL CENTER --- */
 .control-center {
-    background: alpha(@bg, 0.98);
-    border: 3px solid @fg;
-    border-radius: 16px;
-    margin: 10px;
+    background: alpha(@deep-blue, 0.98);
+    border: 2px solid @cyber-purple;
+    border-radius: 8px; /* Entsprichtc exakt corner_radius 8 aus Sway */
+    margin: 4px; /* Entspricht exakt gaps inner 4 */
 }
 
 .control-center-list-placeholder {
-    font-weight: 900;
-    color: alpha(@fg, 0.2);
+    font-weight: 800;
+    color: alpha(@text-light, 0.2);
 }
 
 /* --- NOTIFICATIONS --- */
 .notification {
-    background: @bg-alt;
-    border: 2px solid @fg;
-    border-radius: 12px;
-    margin: 6px 10px;
+    background: @deep-blue;
+    border: 2px solid @cyber-purple;
+    border-radius: 8px;
+    margin: 4px 8px;
     padding: 0; 
     transition: all 0.2s ease;
 }
@@ -42,25 +41,24 @@
 .notification-action {
     background: transparent;
     padding: 8px 12px;
-    border-radius: 12px;
+    border-radius: 4px; /* Schärfere Kanten im Inneren */
 }
 
 .notification:hover {
-    background: @bg-hover;
-    border-color: @accent;
+    background: @soft-blue;
+    border-color: @cyber-pink;
 }
 
 .summary {
-    color: @accent;
+    color: @cyber-pink;
     font-size: 16px;
-    font-weight: 900; /* Extra Fett */
+    font-weight: 800;
     margin-bottom: 2px;
 }
 
 .body {
-    color: @fg;
+    color: @text-light;
     font-size: 14px;
-    /* FIX: Hier stand 500, das hat es dünn gemacht. Jetzt 800 für massiven Look. */
     font-weight: 800; 
 }
 
@@ -72,63 +70,64 @@
 
 .widget-title > label {
     font-size: 20px;
-    font-weight: 900;
-    color: @fg;
+    font-weight: 800;
+    color: @text-light;
 }
 
 .widget-title > button {
-    background: @accent;
-    color: @bg;
-    border: 2px solid @accent;
-    border-radius: 8px;
+    background: @cyber-purple;
+    color: @deep-blue;
+    border: 2px solid @cyber-purple;
+    border-radius: 4px;
     padding: 4px 12px;
     font-size: 13px;
-    font-weight: 900;
+    font-weight: 800;
     transition: all 0.2s ease;
 }
 
 .widget-title > button:hover {
     background: transparent;
-    color: @accent;
+    color: @cyber-pink;
+    border-color: @cyber-pink;
 }
 
 .widget-dnd {
     padding: 8px 15px;
-    color: @fg;
+    color: @text-light;
     font-size: 16px;
-    font-weight: 900;
+    font-weight: 800;
 }
 
 .widget-dnd > switch {
-    background: @bg-alt;
-    border: 2px solid @fg;
-    border-radius: 20px;
+    background: @soft-blue;
+    border: 2px solid @cyber-purple;
+    border-radius: 8px; /* Flacher als das runde Kaffee-Theme */
 }
 
 .widget-dnd > switch slider {
-    background: @fg;
-    border-radius: 20px;
+    background: @text-light;
+    border-radius: 4px;
     min-width: 16px;
     min-height: 16px;
     margin: 3px;
 }
 
 .widget-dnd > switch:checked {
-    background: @accent;
-    border-color: @accent;
+    background: @cyber-pink;
+    border-color: @cyber-pink;
 }
 
 .widget-dnd > switch:checked slider {
-    background: @bg;
+    background: @deep-blue;
 }
 
 .close-button {
-    background: @accent;
-    color: @bg;
-    border-radius: 10px;
+    background: @cyber-purple;
+    color: @deep-blue;
+    border-radius: 4px;
     margin: 4px;
 }
 
 .close-button:hover {
-    background: @fg;
+    background: @cyber-pink;
 }

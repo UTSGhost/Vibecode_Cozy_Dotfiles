@@ -20,7 +20,7 @@ while true; do
         # Cava starten
         mkdir -p ~/.config/cava
         echo "[general]
-bars = 14
+bars = 15
 framerate = 20
 channels = mono
 [output]
