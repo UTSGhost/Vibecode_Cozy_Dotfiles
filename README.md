@@ -29,7 +29,7 @@ Dotfiles_Repo (Branch: clean-flat-vibe)      System Target Path
 ├── zshrc                               ───>  ~/.zshrc
 │
 ├── config/                             ───>  ~/.config/
-│   ├── hypr/                           ───>      ├── hypr/        # (hyprlock config)
+│   ├── hypr/                           ───>      ├── hypr/   
 │   ├── kitty/                          ───>      ├── kitty/
 │   ├── rofi/                           ───>      ├── rofi/
 │   ├── ronema/                         ───>      ├── ronema/
