@@ -12,6 +12,7 @@ File Manager: yazi
 Theme: Clean Flat Vibe (Deep Blue, Cyber Purple, Cyber Pink)
 Main Font: Nunito Bold (Waybar, Rofi & Hyprlock)
 Mono Font: JetBrainsMono Nerd Font (Terminal & Icons)
+```
 
 ## Dependencies
 
