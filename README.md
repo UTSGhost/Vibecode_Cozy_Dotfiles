@@ -23,7 +23,7 @@ swaybg hyprlock swayidle wireplumber yazi kitty
 ```
 and the fonts listed above
 
-## Directory Structur
+## Directory Structure
 ```text
 Dotfiles_Repo (Branch: clean-flat-vibe)      System Target Path
 ───────────────────────────────────────      ──────────────────
